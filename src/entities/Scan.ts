@@ -38,7 +38,7 @@ export class Scan extends BaseEntity {
 
     @Field(() => Product)
     @ManyToOne(() => Product, (product) => product.scans)
-    product: Product;
+    product : Product;
 
 
     // timestamps

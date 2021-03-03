@@ -56,9 +56,13 @@ sudo su postgres -c 'createuser -P --superuser 🟡karlgolka🟡'
 # make a database (you will need to enter the USER PASSWORD)
 sudo su postgres -c 'createdb knowde-pos -U 🟡karlgolka🟡'
 
-# make sure to save this USER PASSWORD back in your .env file!
+# ✅ make sure to save this USER PASSWORD back in your .env file!
 
 ```
+
+## Update your ormconfig.json
+
+✅ Make sure to also update the `username` and `password` fields in the `ormconfig.json` file!
 
 ## Start up the server
 

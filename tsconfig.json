@@ -34,5 +34,5 @@
   "include": [
     "./src/**/*.tsx",
     "./src/**/*.ts"
-  ]
+, "src/migrations/1614804326678-DataHydration.ts.txt"  ]
 }

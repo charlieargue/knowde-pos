@@ -1,0 +1,14 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "karlgolka",
+    "password": "666",
+    "database": "knowde-pos",
+    "migrationsTableName": "migrations",
+    "entities": ["dist/entities/*.js"],
+    "migrations": ["dist/migrations/*.js"],
+    "cli": {
+        "migrationsDir": "src/migrations"
+    }
+}

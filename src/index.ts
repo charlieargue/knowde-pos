@@ -2,28 +2,31 @@ require('dotenv').config();
 import { ApolloServer } from 'apollo-server-express';
 import cors from "cors";
 import express from "express";
+import path from 'path';
 import "reflect-metadata";
 import { buildSchema } from 'type-graphql';
 import { createConnection } from 'typeorm';
 import { Product } from "./entities/Product";
 import { Scan } from "./entities/Scan";
 import { User } from "./entities/User";
-import { HelloResolver } from "./resolvers/hello";
+import { ProductResolver } from './resolvers/product';
 import { MyContext } from "./types";
 
 // ------------------------
 const main = async () => {
 
     // TYPE ORM
-    await createConnection({
+    const conn = await createConnection({
         type: 'postgres',
         database: 'knowde-pos',
         username: process.env.PG_USERNAME,
         password: process.env.PG_PWD,
         logging: true,
-        synchronize: true,
+        // synchronize: true,
         entities: [Product, User, Scan],
+        migrations: [path.join(__dirname, "./migrations/*")],
     });
+    conn.runMigrations();
 
     const app = express();
 
@@ -38,9 +41,7 @@ const main = async () => {
     const apolloServer = new ApolloServer({
 
         schema: await buildSchema({
-            resolvers: [HelloResolver
-                // , ProductResolver, UserResolver
-            ],
+            resolvers: [ProductResolver],
             validate: false
         }),
         context: ({ req, res }): MyContext => ({
