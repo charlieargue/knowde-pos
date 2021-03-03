@@ -2,6 +2,8 @@ import { Query, Resolver } from 'type-graphql';
 import { getConnection } from 'typeorm';
 import { Product } from '../entities/Product';
 
+// JUST for debugging
+
 @Resolver(Product)
 export class ProductResolver {
 
@@ -9,7 +11,6 @@ export class ProductResolver {
     async products(
     ): Promise<Product[]> {
 
-        // using TypeORM's query builder 
         const qb = getConnection()
             .getRepository(Product)
             .createQueryBuilder("p")

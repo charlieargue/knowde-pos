@@ -1,7 +1,9 @@
-const toOutputPRINTER = async (contents: string)=> {
-    // faux print to LCD output (a file)
-    console.log("🖨  ~ contents", contents)
-    return;
+import fs from 'fs';
+
+const toOutputPRINTER = async (contents: string) => {
+     const outputFilename = `output-PRINTER.txt`;
+     fs.appendFileSync(outputFilename, contents + '\n');
+     return;
 
 };
 export default toOutputPRINTER;

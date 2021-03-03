@@ -83,9 +83,64 @@ Open [http://localhost:4000/graphql](http://localhost:4000/graphql) to open the 
 
 ## GraphQL Mutations
 
+To view all `products`, `users`, or `scans`, use:
+```graphql
+# view products
+{
+  products {
+    id
+    barcode
+    name
+    price
+    createdAt
+    
+  }
+}
+
+
+# view users
+{
+  users {
+    id
+    email
+    username
+    createdAt
+    
+  }
+}
+
+
+# view scans (with product data)
+{
+  scans {
+    id
+    userId
+    productId
+    price
+    createdAt
+    product {
+      id
+      name
+      price
+    }
+  }
+}
+
+```
+
 To make a `SALE` operation, for example:
 ```graphql
-
+# example values
+mutation {
+  sale(
+    barcode: "68151-4146",
+    userId: 22) {
+    id
+    userId
+    productId
+    createdAt
+  }
+}
 
 ```
 
