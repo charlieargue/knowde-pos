@@ -10,6 +10,7 @@ import { Product } from "./entities/Product";
 import { Scan } from "./entities/Scan";
 import { User } from "./entities/User";
 import { ProductResolver } from './resolvers/product';
+import { ScanResolver } from './resolvers/scan';
 import { MyContext } from "./types";
 
 // ------------------------
@@ -41,7 +42,7 @@ const main = async () => {
     const apolloServer = new ApolloServer({
 
         schema: await buildSchema({
-            resolvers: [ProductResolver],
+            resolvers: [ProductResolver, ScanResolver],
             validate: false
         }),
         context: ({ req, res }): MyContext => ({

@@ -17,7 +17,4 @@ export class ProductResolver {
             .take();
         return qb.getMany();
     }
-
-
-
 }

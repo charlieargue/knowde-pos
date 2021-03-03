@@ -1,5 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
-import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Product } from "./Product";
 import { User } from "./User";
 
@@ -11,21 +11,25 @@ import { User } from "./User";
 @Entity()
 export class Scan extends BaseEntity {
 
+    @Field()
+    @PrimaryGeneratedColumn()
+    id!: number;
+
+
     // EXTRA COLUMNs
     // ------------------------
     @Field()
     @Column({ type: "float" })
-    price!: number;
+    price!: number; // in case prices change and not managing that history
 
     // JOIN COLUMNS (FKs)
     // ------------------------
     @Field()
-    @PrimaryColumn()
-    userId: number; // cashier at register doing the scanning
-
+    @Column()
+    userId: number; // i.e. cashier at register doing the scanning
 
     @Field()
-    @PrimaryColumn()
+    @Column()
     productId: number;
 
     // sub-objects
