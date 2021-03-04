@@ -1,6 +1,10 @@
 # Knowde Point-of-Sale INTERVIEW TEST 
 
-A **Node.js** backend using **GraphQL**, **Apollo-Server**, and **PostgreSQL**, written for Knowde's interview test.
+Written for Knowde's interview test, this is a **Node.js** backend using:
+* **GraphQL**, 
+* **Apollo-Server**, 
+* **Jest**
+* and **PostgreSQL**
 
 > by Karl Golka on Wed Mar 3, 2021
 
@@ -39,28 +43,29 @@ cp .env.dist .env
 To setup your PosgreSQL database, execute the following commands:
 ```sh
 
-# install PosgreSQL
-# (see https://brew.sh/ for how to install brew)
-# (you maybe prompted to create a SA password, remember it, keep it simple)
+# install PosgreSQL (note doen the SA password you will be prompted to create)
 brew install postgresql
 
 # confirm installed correctly, check version:
 postgres -V
 
-# create a database user (🟡 all these to your username):
-# (this should be the username you enter in your .env file!)
-# First enter (twice) a new password for THIS NEW USER (keep it simple)
-# (you will be prompted for the SA password at the end)
-sudo su postgres -c 'createuser -P --superuser 🟡karlgolka🟡'
 
-# make a database (you will need to enter the USER PASSWORD)
-sudo su postgres -c 'createdb knowde-pos -U 🟡karlgolka🟡'
+# 🔴 ???? do you need sudo su postgres -c ' ... '    ????
+
+# create a database user (🟡 change to your username):
+# 🔴 [ ] enter the new user username and password in your .env file
+# 🔴 [ ] you have to enter 2 passwords with these commands:
+#        • first your root password for sudo, and then a new password for createuser
+createuser -P --superuser 🟡karlgolka🟡
+
+# make a database 🔴  (you will need to enter the USER PASSWORD)
+createdb knowde-pos -U 🟡karlgolka🟡
+createdb knowde-pos -U karlgolka
 
 ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ 
 createdb blbl       ✅ works!
 createuser blabl    ✅ works!
 
-# ✅ make sure to save this USER PASSWORD back in your .env file!
 
 ```
 
@@ -163,5 +168,11 @@ And to perform an `EXIT` operation:
 1. setup test DB:
 ```sh
 # change username!
-sudo su postgres -c 'createdb knowde-pos-test -U karlgolka'
+createdb knowde-pos-test -U 🟡karlgolka🟡
+
+# NOTE: server nor yarn watch DO NOT need to be running for tests to work!
+
+# run tests
+yarn test
+
 ```

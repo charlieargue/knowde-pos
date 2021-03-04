@@ -47,11 +47,11 @@ describe('Scanning sales tests', () => {
         const { testUser, testProduct }: { testUser: User; testProduct: Product; } =
             await setupTestData(conn);
 
-        // run SUCCESSFUL sale against those
+        // run SUCCESSFUL sale against TestData
         const result = await gCall({
             source: saleMutation,
             variableValues: {
-                barcode: "68151-4146",
+                barcode: testProduct.barcode,
                 userId: testUser.id
             }
         })
