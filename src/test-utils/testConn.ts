@@ -10,7 +10,8 @@ const testConn = (drop: boolean = false) => {
         database: "knowde-pos-test",
         synchronize: drop,
         dropSchema: drop,
-        entities: [__dirname + "/../entities/*.*"]
+        entities: [__dirname + "/../entities/*.*"],
+        logging: false
     });
 
 };

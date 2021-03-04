@@ -3,7 +3,7 @@ import testConn from "../test-utils/testConn";
 import { gCall } from "../test-utils/gCall";
 import { Product } from "../entities/Product";
 import { User } from "../entities/User";
-import { setupTestData } from "./setupTestData";
+import { setupTestData } from "../test-utils/setupTestData";
 
 export let conn: Connection;
 beforeAll(async () => {
