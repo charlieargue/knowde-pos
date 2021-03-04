@@ -56,6 +56,10 @@ sudo su postgres -c 'createuser -P --superuser 🟡karlgolka🟡'
 # make a database (you will need to enter the USER PASSWORD)
 sudo su postgres -c 'createdb knowde-pos -U 🟡karlgolka🟡'
 
+❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ 
+createdb blbl       ✅ works!
+createuser blabl    ✅ works!
+
 # ✅ make sure to save this USER PASSWORD back in your .env file!
 
 ```
@@ -153,6 +157,11 @@ And to perform an `EXIT` operation:
 ```
 
 
-# Test Mocked JSON Data 
+# Running Tests
 
-... mockaroo.com, TBD
+❌ TODO:
+1. setup test DB:
+```sh
+# change username!
+sudo su postgres -c 'createdb knowde-pos-test -U karlgolka'
+```

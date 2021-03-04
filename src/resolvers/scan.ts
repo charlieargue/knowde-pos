@@ -10,7 +10,7 @@ export class ScanResolver {
 
 
     // ------------------------ SALE
-    @Mutation(() => [Scan], { nullable: true })
+    @Mutation(() => Scan, { nullable: true })
     async sale(
         @Arg('userId', () => Int) userId: number,       // i.e. user doing the barcode scanning
         @Arg('barcode', () => String) barcode: string,
@@ -38,7 +38,7 @@ export class ScanResolver {
 
                 await toOutputLCD(`${foundProduct.name} $${foundProduct.price}`);
 
-                return savedScan.raw as Scan;
+                return savedScan.raw[0] as Scan;
             } else {
 
                 await toOutputLCD(`Product not found`);
