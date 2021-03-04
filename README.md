@@ -3,17 +3,17 @@
 Written for Knowde's interview test, this is a **Node.js** backend using:
 * **GraphQL**, 
 * **Apollo-Server**, 
-* **Jest**
+* **Jest**,
 * and **PostgreSQL**
 
-> by Karl Golka on Wed Mar 3, 2021
+> by Karl Golka on Wed Mar 3, 2021, [karlgolka.com](https://karlgolka.com/)
 
 # How to install
 
 ```sh
 
 # clone the repo
-git clone git@github.com:charlieargue/knowde-pos.git
+git clone https://github.com/charlieargue/knowde-pos.git
 
 # change directory 
 cd knowde-pos
