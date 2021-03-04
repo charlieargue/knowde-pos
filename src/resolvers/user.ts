@@ -2,7 +2,6 @@ import { Query, Resolver } from 'type-graphql';
 import { getConnection } from 'typeorm';
 import { User } from '../entities/User';
 
-// JUST for debugging
 
 @Resolver(User)
 export class UserResolver {

@@ -2,7 +2,6 @@ import { Query, Resolver } from 'type-graphql';
 import { getConnection } from 'typeorm';
 import { Product } from '../entities/Product';
 
-// JUST for debugging
 
 @Resolver(Product)
 export class ProductResolver {

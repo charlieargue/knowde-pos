@@ -9,27 +9,12 @@ import toOutputPRINTER from '../utils/toOutputPRINTER';
 export class ScanResolver {
 
 
-    // ------------------------ just for DEBUGGING
-    @Query(() => [Scan])
-    async scans(
-    ): Promise<Scan[]> {
-
-        const qb = getConnection()
-            .getRepository(Scan)
-            .createQueryBuilder("s")
-            .leftJoinAndSelect("s.product", "product")
-            .orderBy('s.createdAt', "DESC")
-            .take();
-        return qb.getMany();
-    }
-
-
-    // ------------------------
+    // ------------------------ SALE
     @Mutation(() => [Scan], { nullable: true })
     async sale(
         @Arg('userId', () => Int) userId: number,       // i.e. user doing the barcode scanning
         @Arg('barcode', () => String) barcode: string,
-    ): Promise<Scan | null> {
+    ): Promise<Scan | null | Error> {
 
         console.log("🚀 ~ barcode", barcode);
         try {
@@ -63,11 +48,17 @@ export class ScanResolver {
 
         } catch (err) {
             console.log("🚀 ~ err", err)
-            return err;
+            return new Error('Error occurred during sale');
+
+            // TODO: better error handling responses i.e. return: 
+            // SaleResponse {
+            //   errors?: FieldError[],
+            //   scan?: Scan,
+            // }
         }
     }
 
-    // ------------------------ 
+    // ------------------------ EXIT
     @Query(() => Boolean, { nullable: true })
     async exit(
     ): Promise<null> {
@@ -96,8 +87,21 @@ export class ScanResolver {
         // send to LCD
         await toOutputLCD(`TOTAL: $${sum}`);
 
-
         return null;
+    }
+
+    // ------------------------ 
+    @Query(() => [Scan])
+    async scans(
+    ): Promise<Scan[]> {
+
+        const qb = getConnection()
+            .getRepository(Scan)
+            .createQueryBuilder("s")
+            .leftJoinAndSelect("s.product", "product")
+            .orderBy('s.createdAt', "DESC")
+            .take();
+        return qb.getMany();
     }
 
 

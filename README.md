@@ -147,7 +147,9 @@ mutation {
 And to perform an `EXIT` operation:
 ```graphql
 
-
+{
+  exit
+}
 ```
 
 
