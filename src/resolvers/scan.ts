@@ -16,7 +16,6 @@ export class ScanResolver {
         @Arg('barcode', () => String) barcode: string,
     ): Promise<Scan | null | Error> {
 
-        console.log("🚀 ~ barcode", barcode);
         try {
 
             const foundProduct = await getConnection()
@@ -52,7 +51,7 @@ export class ScanResolver {
 
             // TODO: better error handling responses i.e. return: 
             // SaleResponse {
-            //   errors?: FieldError[],
+            //   errors?: AppError[],
             //   scan?: Scan,
             // }
         }
