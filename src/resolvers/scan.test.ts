@@ -5,6 +5,8 @@ import { Product } from "../entities/Product";
 import { User } from "../entities/User";
 import { setupTestData } from "../test-utils/setupTestData";
 
+// TODO: tests are NOT testing actual outputs (.txt file contents), upgrade to do so in future
+
 export let conn: Connection;
 beforeAll(async () => {
     conn = await testConn();
@@ -24,6 +26,12 @@ mutation Sale($barcode: String!, $userId: Int!) {
         productId
         createdAt
     }
+}
+`;
+
+const exitQuery = `
+query Exit {
+    exit
 }
 `;
 
@@ -61,6 +69,13 @@ describe('Scanning sales tests', () => {
     });
 
 
+    it('exit returns null', async () => {
+
+        const result = await gCall({
+            source: exitQuery
+        })
+        await expect(result.data?.exit).toEqual(null);
+    });
 
 });
 

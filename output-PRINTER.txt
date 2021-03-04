@@ -70,3 +70,12 @@ USERID: 22|PRODUCT: Appetizer - Mango Chevre (#131)|SCAN PRICE: $9
 USERID: 22|PRODUCT: Appetizer - Mango Chevre (#131)|SCAN PRICE: $9
 ----------------------------------------
 TOTAL: $117.85
+USERID: 22|PRODUCT: Appetizer - Mango Chevre (#130)|SCAN PRICE: $9
+----------------------------------------
+TOTAL: $9
+USERID: 1|PRODUCT: Avocado (#1)|SCAN PRICE: $7.17
+----------------------------------------
+TOTAL: $7.17
+USERID: 1|PRODUCT: Avocado (#1)|SCAN PRICE: $7.17
+----------------------------------------
+TOTAL: $7.17
