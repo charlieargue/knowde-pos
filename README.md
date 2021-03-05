@@ -49,24 +49,11 @@ brew install postgresql
 # confirm installed correctly, check version:
 postgres -V
 
-
-# 🔴 ???? do you need sudo su postgres -c ' ... '    ????
-
-# create a database user (🟡 change to your username):
-# 🔴 [ ] enter the new user username and password in your .env file
-# 🔴 [ ] you have to enter 2 passwords with these commands:
-#        • first your root password for sudo, and then a new password for createuser
-createuser -P --superuser 🟡karlgolka🟡
+# create a database user (🟡 change username):
+createuser -P --superuser 🟡myusername🟡
 
 # make a database 🔴  (you will need to enter the USER PASSWORD)
-createdb knowde-pos -U 🟡karlgolka🟡
-createdb knowde-pos -U karlgolka
-
-❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ 
-createdb blbl       ✅ works!
-createuser blabl    ✅ works!
-
-
+createdb knowde-pos -U 🟡myusername🟡
 ```
 
 ## Update your ormconfig.json
