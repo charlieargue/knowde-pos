@@ -51,6 +51,7 @@ postgres -V
 
 # create a database user (🟡 change username):
 createuser -P --superuser 🟡myusername🟡
+# NOTE: you'll enter the same password THREE times
 
 # make a database 🔴  (you will need to enter the USER PASSWORD)
 createdb knowde-pos -U 🟡myusername🟡
@@ -151,15 +152,20 @@ And to perform an `EXIT` operation:
 
 # Running Tests
 
-❌ TODO:
-1. setup test DB:
+First, setup the test DB:
 ```sh
 # change username!
 createdb knowde-pos-test -U 🟡karlgolka🟡
 
-# NOTE: server nor yarn watch DO NOT need to be running for tests to work!
+# NOTE: you DO NOT need the server nor `yarn watch` running for tests to work!
 
 # run tests
 yarn test
 
 ```
+
+# Output Files
+
+Output devices were mocked to be files, as per instructions. They can be viewed here:
+*  [🖥 LCD output file](output-LCD.txt)
+*  [🖨 PRINTER output file](output-PRINTER.txt)
