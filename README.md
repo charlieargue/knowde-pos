@@ -8,6 +8,8 @@ Written for Knowde's interview test, this is a **Node.js** backend using:
 
 > by Karl Golka on Wed Mar 3, 2021, [karlgolka.com](https://karlgolka.com/)
 
+> Install video (2 mins) [video link](https://www.loom.com/share/12459f71bf5b4afcaacfe8c44a46422f)
+
 # How to install
 
 ```sh
