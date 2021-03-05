@@ -24,7 +24,7 @@ yarn install
 
 # Quick Start
 
-## Setup environment variables
+## Setup environment variables and output files
 
 You will need to grab a `.env` environment variable file:
 ```
@@ -36,6 +36,12 @@ You will need to grab a `.env` environment variable file:
 cp .env.dist .env
 
 # make sure to fill it out with the PostgreSQL username/password, see below...
+```
+
+Create your two output files:
+```sh
+# output files
+touch output-LCD.txt && output-PRINTER.txt
 ```
 
 ## Setup database
