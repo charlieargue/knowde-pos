@@ -41,7 +41,7 @@ cp .env.dist .env
 Create your two output files:
 ```sh
 # output files
-touch output-LCD.txt && output-PRINTER.txt
+touch output-LCD.txt && touch output-PRINTER.txt
 ```
 
 ## Setup database
